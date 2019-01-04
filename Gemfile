@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.21.0'
+gem 'pg', '~> 1.1', '>= 1.1.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,3 +48,4 @@ gem 'rspec', '~> 2.99.0'
 gem 'rspec-rails', '~> 2.99.0'
 gem 'execjs'
 gem 'nodejs-rails'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
