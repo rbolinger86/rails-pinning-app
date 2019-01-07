@@ -49,3 +49,4 @@ end
 gem 'execjs'
 gem 'nodejs-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'rails_12factor'
