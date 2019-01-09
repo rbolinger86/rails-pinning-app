@@ -1,5 +1,6 @@
 body {
   background: url(asset-path('laptop-background.jpg')) no-repeat;
+  background-size: cover;
 }
 a {
   color: #dd5566;
@@ -24,4 +25,19 @@ h1 {
 }
 hr {
   clear:both;
+}
+.new_pin {
+  text-align: center;
+  padding-top: 5em;
+}
+.form-group {
+  align-items: center;
+  width: 100%;
+}
+.align-middle {
+  padding-right: .2em;
+}
+.description {
+  display: flex;
+  justify-content: center;
 }
