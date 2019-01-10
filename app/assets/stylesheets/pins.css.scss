@@ -30,12 +30,18 @@ hr {
   text-align: center;
   padding-top: 5em;
 }
+.edit_pin {
+  text-align: center;
+  padding-top: 5em;
+}
 .form-group {
   align-items: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .align-middle {
-  padding-right: .2em;
+  padding-right: .5em;
 }
 .description {
   display: flex;
@@ -43,6 +49,7 @@ hr {
 }
 .error ul {
   margin-bottom: auto;
+  list-style: none;
 }
 .error {
   text-align: center;
@@ -51,4 +58,7 @@ hr {
   padding: 5px;
   margin: 1em auto 5px auto;
   width: fit-content;
+}
+.col-form-label {
+  padding-right: .5em;
 }

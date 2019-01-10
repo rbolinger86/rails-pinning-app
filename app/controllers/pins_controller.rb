@@ -19,14 +19,26 @@ class PinsController < ApplicationController
 
   def create
     pin = Pin.new(pin_params)
-    if pin.title.to_s.chars.length == pin.title.to_s.gsub(/[^\w\s]/i, '').chars.length
-      @pin = Pin.create(pin_params)
-      pin.save
-      render :show
+    if pin.save
+      redirect_to pin
     else
-      @error = "Sorry, your input was invalid. Please try again!"
       @pin = pin
       render :new
+    end
+  end
+
+  def edit
+    @pin = Pin.find(params[:id])
+    render :edit
+  end
+
+  def update
+    pin = Pin.find(params[:id])
+    if pin.update_attributes(pin_params)
+      redirect_to pin
+    else
+      @pin = pin
+      render :edit
     end
   end
 
