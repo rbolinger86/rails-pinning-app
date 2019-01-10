@@ -41,3 +41,14 @@ hr {
   display: flex;
   justify-content: center;
 }
+.error ul {
+  margin-bottom: auto;
+}
+.error {
+  text-align: center;
+  color: #dd0000;
+  border: 1px solid #dd0000;
+  padding: 5px;
+  margin: 1em auto 5px auto;
+  width: fit-content;
+}

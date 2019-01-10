@@ -18,19 +18,21 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin.errors.add('input', 'must be only alphabetic characters') if @pin.to_s.chars.length > @pin.to_s.gsub(/[^a-z]/i, '').chars.length
-    if @pin.errors
-      render :show
+    pin = Pin.new(pin_params)
+    if pin.title.to_s.chars.length == pin.title.to_s.gsub(/[^\w\s]/i, '').chars.length
       @pin = Pin.create(pin_params)
+      pin.save
+      render :show
     else
+      @error = "Sorry, your input was invalid. Please try again!"
+      @pin = pin
       render :new
-      @error = @pin.error
     end
   end
 
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :url, :slug, :text, :resource_type)
+    params.require(:pin).permit(:title, :url, :slug, :text, :resource_type, :category_id)
   end
 end
