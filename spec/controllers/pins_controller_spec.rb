@@ -82,4 +82,34 @@ describe "GET new" do
       expect(assigns[:errors].present?).to be(true)
     end
 
+    describe "GET edit" do
+      it 'responds with successfully' do
+        get :new
+        expect(response.success?).to be(true)
+      end
+      it 'renders the new view' do
+        get :new
+        expect(response).to render_template(:new)
+      end
+      it 'assigns an instance variable to a new pin' do
+        get :new
+        expect(assigns(:pin)).to be_a_new(Pin)
+      end
+    end
+
+    describe "PUT update" do
+      it 'responds with successfully' do
+        get :new
+        expect(response.success?).to be(true)
+      end
+      it 'renders the new view' do
+        get :new
+        expect(response).to render_template(:new)
+      end
+      it 'assigns an instance variable to a new pin' do
+        get :new
+        expect(assigns(:pin)).to be_a_new(Pin)
+      end
+    end
+
   end
