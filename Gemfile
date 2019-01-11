@@ -35,7 +35,7 @@ gem 'puma'
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -50,3 +50,6 @@ gem 'execjs'
 gem 'nodejs-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'rails_12factor'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk-s3'

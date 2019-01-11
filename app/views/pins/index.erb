@@ -25,6 +25,9 @@
               </div>
             </div>
             <hr/>
+            <% if pin.image.url.present? %>
+              <img src="<%= pin.image.url(:thumb) %>">
+            <% end %>
             <p class="text"><%= "#{pin.text}" %></p>
           </div>
         </div>
@@ -32,5 +35,4 @@
     </div>
   <% end %>
 </div>
-
 <hr/>

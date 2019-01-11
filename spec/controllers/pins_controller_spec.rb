@@ -38,8 +38,7 @@ describe "GET new" do
         title: "Rails Wizard",
         url: "http://railswizard.org",
         slug: "rails-wizard",
-        text: "A fun and helpful Rails Resource",
-        resource_type: "rails"}
+        text: "A fun and helpful Rails Resource"}
     end
 
     after(:each) do
