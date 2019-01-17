@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Puma as the web server
 gem 'puma'
-gem 'web-console', '~> 2.0'
+gem 'web-console', '~> 2.0', :group => :development, :test
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
