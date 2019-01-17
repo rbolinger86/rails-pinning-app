@@ -1,0 +1,10 @@
+<h1>Login</h1>
+<% if @error.present? %>
+  <div class="error">
+    <h2><% "#{@error}" %></h2>
+  </div>
+<% end %>
+<%= form_tag "/login" %>
+  <%= text_field_tag 'email' %>
+  <%= text_field_tag 'password' %>
+  <%= submit_tag %>
