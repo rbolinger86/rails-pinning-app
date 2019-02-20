@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   def self.authenticate(email, password)
     user = User.find_by_email(email)
-      if user.password == User.find_by_password(password)
-        user = @user
+      if user.password == password
+        user
       else
-        user = nil
+        nil
       end
   end
 end
