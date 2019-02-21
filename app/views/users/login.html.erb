@@ -1,7 +1,7 @@
 <h1>Login</h1>
 <% if @error.present? %>
   <div class="error">
-    <h2><% "#{@error}" %></h2>
+    <h2><%= "#{@error}" %></h2>
   </div>
 <% end %>
 <%= form_tag "/login" %>

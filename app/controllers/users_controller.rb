@@ -65,8 +65,8 @@ class UsersController < ApplicationController
   end
 
   def authenticate
-    if User.authenticate(params[:email], params[:password])
-      redirect_to @user
+    if user = User.authenticate(params[:email], params[:password])
+      redirect_to user
     else
       @error = "Sorry, your e-mail address and/or password could not be authenticated."
       render :login

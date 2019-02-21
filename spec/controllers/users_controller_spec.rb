@@ -23,8 +23,28 @@ describe UsersController do
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "first_name" => "MyString" } }
+before(:each) do
+  @user = FactoryGirl.build(:user)
+end
 
+after(:each) do
+  @user.destroy
+end
+
+let(:valid_attributes) {
+  {
+    first_name: @user.first_name,
+    last_name: @user.last_name,
+    email: @user.email,
+    password: @user.password
+  }
+}
+let(:invalid_attributes) {
+  {
+    first_name: @user.first_name,
+    password: @user.password
+  }
+}
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
@@ -149,12 +169,44 @@ describe UsersController do
         delete :destroy, {:id => user.to_param}, valid_session
       }.to change(User, :count).by(-1)
     end
+  end
 
-    it "redirects to the users list" do
-      user = User.create! valid_attributes
-      delete :destroy, {:id => user.to_param}, valid_session
-      response.should redirect_to(users_url)
+  describe "GET login" do
+    it "renders the login view" do
     end
   end
 
+  describe "POST login" do
+    before(:all) do
+      @user = User.create(email: "coder@skillcrush.com", password: "secret")
+      @valid_user_hash = {email: @user.email, password: @user.password}
+      @invalid_user_hash = {email: "", password: ""}
+    end
+
+    after(:all) do
+      if !@user.destroyed?
+        @user.destroy
+      end
+    end
+
+    it "renders the show view if params valid" do
+      post :authenticate, @valid_user_hash
+      response.should render_template("show")
+    end
+
+    it "populates @user if params valid" do
+      post :authenticate, @valid_user_hash
+      assigns(:user).should eq(user)
+    end
+
+    it "renders the login view if params invalid" do
+      post :authenticate, @invalid_user_hash
+      response.should render_template("login")
+    end
+
+    it "populates the @errors variable if params invalid" do
+      post :authenticate, @invalid_user_hash
+      assigns(:errors).should eq("Sorry, your e-mail address and/or password could not be authenticated.")
+    end
+  end
 end
