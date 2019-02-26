@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -65,12 +65,18 @@ class UsersController < ApplicationController
   end
 
   def authenticate
-    if user = User.authenticate(params[:email], params[:password])
-      redirect_to user
+    @user = User.authenticate(params[:email], params[:password])
+    if @user.present?
+      session[:user_id] = @user.id
+      redirect_to @user
     else
       @error = "Sorry, your e-mail address and/or password could not be authenticated."
       render :login
     end
+  end
+
+  def logout
+    session.delete(:user_id)
   end
 
   private

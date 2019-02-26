@@ -61,6 +61,7 @@ let(:invalid_attributes) {
   describe "GET show" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: @user.email, password: @user.password}
       get :show, {:id => user.to_param}, valid_session
       assigns(:user).should eq(user)
     end
@@ -76,6 +77,7 @@ let(:invalid_attributes) {
   describe "GET edit" do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: @user.email, password: @user.password}
       get :edit, {:id => user.to_param}, valid_session
       assigns(:user).should eq(user)
     end
@@ -122,6 +124,7 @@ let(:invalid_attributes) {
     describe "with valid params" do
       it "updates the requested user" do
         user = User.create! valid_attributes
+        post :authenticate, {email: @user.email, password: @user.password}
         # Assuming there are no other users in the database, this
         # specifies that the User created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -154,6 +157,7 @@ let(:invalid_attributes) {
 
       it "re-renders the 'edit' template" do
         user = User.create! valid_attributes
+        post :authenticate, {email: @user.email, password: @user.password}
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         put :update, {:id => user.to_param, :user => { "first_name" => "invalid value" }}, valid_session
@@ -165,6 +169,7 @@ let(:invalid_attributes) {
   describe "DELETE destroy" do
     it "destroys the requested user" do
       user = User.create! valid_attributes
+      post :authenticate, {email: @user.email, password: @user.password}
       expect {
         delete :destroy, {:id => user.to_param}, valid_session
       }.to change(User, :count).by(-1)
