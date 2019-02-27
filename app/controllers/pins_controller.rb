@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_action :require_login, except: [:show, :show_by_name, :index]
+  before_action :require_login, except: [:show, :show_by_name]
 
   def index
     @pins = current_user.pins
