@@ -137,14 +137,11 @@ describe "GET new" do
       end
 
       it 'responds with a redirect' do
-
       end
 
       it 'creates a user.pin' do
-
       end
 
       it 'redirects to the user show page' do
-
       end
   end
