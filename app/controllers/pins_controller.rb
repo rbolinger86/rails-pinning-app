@@ -7,10 +7,12 @@ class PinsController < ApplicationController
 
   def show
     @pin = Pin.find(params[:id])
+    @users = @pin.users
   end
 
   def show_by_name
     @pin = Pin.find_by_slug(params[:slug])
+    @users = @pin.users
     render :show
   end
 

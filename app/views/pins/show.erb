@@ -3,6 +3,30 @@
     <i class="fa fa-laptop"></i>
     <%= "#{@pin.title}" %>
   </h1>
+  <h3>
+    This pin has been pinned by:
+  </h3>
+  <div class="users">
+    <table>
+      <thead>
+        <tr>
+          <th>First</th>
+          <th>Last</th>
+          <th>Email</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="show-pin">
   <p><%= "#{@pin.text}" %></p>
