@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   has_many :pinnings
   has_many :pins, through: :pinnings
+  has_many :boards
   has_secure_password
 
   def self.authenticate(email, password)
