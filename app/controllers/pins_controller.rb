@@ -18,11 +18,13 @@ class PinsController < ApplicationController
 
   def new
     @pin = Pin.new
+    @pin.pinnings.build
   end
 
   def create
     pin = Pin.new(pin_params)
     if pin.save
+      pin.pinnings.create(user: current_user)
       redirect_to pin
     else
       @pin = pin

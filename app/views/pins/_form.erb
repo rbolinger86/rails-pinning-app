@@ -34,6 +34,13 @@
     <label for="pin_image" class="col-form-label">Image</label>
     <%= f.file_field :image %>
   </div>
+  <%= f.fields_for :pinnings do |p| %>
+    <div class="form-group row">
+      <label class="col-form-label">Which board?</label>
+      <%= p.collection_select(:board_id, current_user.boards, :id, :name, {}, {class: "form-control"}) %>
+    </div>
+      <%= p.hidden_field :user_id, value: current_user.id %>
+  <% end %>
   <div class="form-group row submit">
     <%= f.submit %>
   </div>
