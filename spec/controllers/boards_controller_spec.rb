@@ -42,7 +42,6 @@ RSpec.describe BoardsController do
         name: "My Pins!"
       }
     end
-
     after(:each) do
       board = Board.find_by_name("My Pins!")
       if board.present?
