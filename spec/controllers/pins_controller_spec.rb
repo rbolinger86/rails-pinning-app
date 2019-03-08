@@ -8,6 +8,7 @@ RSpec.describe PinsController do
 
   after(:each) do
     if !@user.destroyed?
+      @user.boards.destroy_all
       @user.destroy
     end
   end
@@ -50,6 +51,7 @@ describe "GET new" do
         slug: "rails-wizard",
         text: "A fun and helpful Rails Resource"}
     end
+  end
 
     after(:each) do
       pin = Pin.find_by_slug("rails-wizard")
@@ -137,11 +139,17 @@ describe "GET new" do
       end
 
       it 'responds with a redirect' do
+        post :create, pin: @pin_hash
+        expect(response.redirect?).to be(true)
       end
 
       it 'creates a user.pin' do
+        post :create, pin: @pin_hash
+        expect(assigns[:user.pin].present?).to be(true)
       end
 
       it 'redirects to the user show page' do
+        post :create, pin: @pin_hash
+        expect(response).to render_template(:show)
       end
   end
