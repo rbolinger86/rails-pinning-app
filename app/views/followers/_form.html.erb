@@ -1,0 +1,11 @@
+<%= form_for @follower, html: {class: "well"} do |f| %>
+    <%= f.hidden_field :user_id, value: user_to_follow.id %><br>
+    <%= f.hidden_field :follower_id, value: current_user.id %><br>
+    <%= "#{user_to_follow.first_name} #{user_to_follow.last_name}" %>
+  <div class="actions">
+    <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
+      <i class="fa fa-users"></i>
+      Follow!
+    <% end %>
+  </div>
+<% end %>
