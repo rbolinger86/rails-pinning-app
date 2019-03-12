@@ -1,6 +1,6 @@
 class FollowersController < ApplicationController
-  before_action :set_follower, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:new, :edit, :update, :destroy]
+  before_action :set_follower, only: [:update]
+  before_action :require_login, only: [:index, :new, :update]
 
   # GET /followers
   # GET /followers.json
@@ -11,8 +11,6 @@ class FollowersController < ApplicationController
 
   # GET /followers/1
   # GET /followers/1.json
-  def show
-  end
 
   # GET /followers/new
   def new
@@ -21,8 +19,6 @@ class FollowersController < ApplicationController
   end
 
   # GET /followers/1/edit
-  def edit
-  end
 
   # POST /followers
   # POST /followers.json
@@ -57,13 +53,6 @@ class FollowersController < ApplicationController
 
   # DELETE /followers/1
   # DELETE /followers/1.json
-  def destroy
-    @follower.destroy
-    respond_to do |format|
-      format.html { redirect_to followers_url, notice: 'Follower was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

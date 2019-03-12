@@ -23,4 +23,11 @@ class User < ActiveRecord::Base
   def not_followed
     User.all - self.followed - [self]
   end
+  def user_followers
+    self.followers.map{ |f| User.find(f.follower_id) }
+  end
+
+  def full_name
+    first_name + " " + last_name
+  end
 end
