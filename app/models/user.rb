@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :pinnings
   has_many :pins, through: :pinnings
   has_many :boards
+  has_many :followers
+  has_many :board_pinners
   has_secure_password
 
   def self.authenticate(email, password)
@@ -29,5 +31,9 @@ class User < ActiveRecord::Base
 
   def full_name
     first_name + " " + last_name
+  end
+
+  def pinnable_boards
+    self.boards + self.board_pinners.map{ |bp| bp.board }
   end
 end
