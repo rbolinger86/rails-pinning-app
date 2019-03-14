@@ -6,7 +6,6 @@ RSpec.describe BoardsController do
     @board = @user.boards.first
     login(@user)
   end
-
   after(:each) do
     if !@user.destroyed?
       @user.pins.destroy_all
