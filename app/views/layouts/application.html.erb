@@ -22,6 +22,9 @@
                   <%= link_to "#{board.name}", board_path(board), "role" => "menuitem", "tabindex" => "-1" %>
                 </li>
               <% end %>
+              <li role="presentation">
+                <%= link_to "All Boards", "/boards", "role" => "menuitem", "tabindex" => "-1" %>
+              </li>
               <li role="presentation" class="divider"></li>
               <li role="presentation">
                 <%= link_to "Add a Pin", new_pin_path, "role" => "menuitem", "tabindex" => "-1" %>

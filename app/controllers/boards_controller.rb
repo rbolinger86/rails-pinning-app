@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = current_user.pinnable_boards
   end
 
   # GET /boards/1
@@ -46,6 +46,7 @@ class BoardsController < ApplicationController
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }
+        puts board_params.inspect
         format.json { render :show, status: :ok, location: @board }
       else
         format.html { render :edit }
