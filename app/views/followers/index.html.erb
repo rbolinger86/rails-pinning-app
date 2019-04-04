@@ -3,7 +3,7 @@
 <h1>Listing Followers</h1>
 
 <div class="users">
-  <table>
+  <table id="follower-table">
     <thead>
       <tr>
         <th>First</th>
@@ -17,7 +17,9 @@
         <tr>
           <td><%= followed.first_name %></td>
           <td><%= followed.last_name %></td>
-          <td><%= followed.boards.name %></td>
+          <% followed.boards.each do |board| %>
+            <td><%= link_to "#{board.name}", board %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

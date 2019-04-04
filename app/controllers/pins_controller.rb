@@ -53,6 +53,16 @@ class PinsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    @pin = Pin.find(params[:id])
+    @pin.pinnings.delete_all
+    @pin.delete
+    respond_to do |format|
+      format.html { redirect_to boards_path, notice: 'Pin was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def pin_params

@@ -10,12 +10,9 @@ h1 {
   font-size: 60px;
   color: #dd5566;
 }
-.pin-container{
-  padding: 10px;
-}
 .pin {
   padding: 40px;
-  min-height: 343px;
+  height: 45em;
   background-color: #fff;
   border: 1px solid #efefef;
 }
@@ -27,16 +24,15 @@ hr {
   clear:both;
 }
 .new_pin {
-  text-align: center;
-  padding-top: 5em;
+  display: inline-block;
+  padding-top: 3em;
 }
-.edit_pin {
-  text-align: center;
-  padding-top: 5em;
+.edit-pin {
+  padding-top: 3em;
 }
 .form-group {
   align-items: center;
-  width: 100%;
+  width: fit-content;
   display: flex;
   justify-content: center;
 }
@@ -65,4 +61,26 @@ hr {
 .users table {
   width: 40em;
   margin-bottom: 1em;
+}
+.pin-label {
+  text-align: left;
+  width: 7em;
+}
+.pin-submit {
+  margin-left: auto;
+  margin-right: auto;
+}
+.board-select-label {
+  text-align: left;
+  width: 11em;
+}
+a.pin-options {
+  padding-right: 1em;
+}
+.repin-button {
+  display: block;
+  margin: 0em 0em 1em 8em;
+}
+.repin-form {
+  padding-top: 1em;
 }

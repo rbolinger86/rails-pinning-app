@@ -1,5 +1,6 @@
 <% if logged_in? %>
   <%= form_for pin, url: repin_path(pin), method: "post" do |f| %>
+  <div class="repin-form">
     <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.fields_for :pinning do |p| %>
       <div class="form-group">
@@ -8,10 +9,11 @@
       </div>
         <%= p.hidden_field :user_id, value: current_user.id %>
     <% end %>
-    <%= f.button :submit, class: "btn btn-default pinterest-theme-button" do %>
+    <%= f.button :submit, class: "btn btn-default pinterest-theme-button repin-button" do %>
       <i class="fa fa-diamond"></i>
       Repin!
     <% end %>
+    </div>
   <% end %>
 <% else %>
   <%= link_to "Log in to repin!", login_path %>

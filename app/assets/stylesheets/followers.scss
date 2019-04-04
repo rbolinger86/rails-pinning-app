@@ -1,3 +1,16 @@
 // Place all the styles related to the followers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.new-followers {
+  display: flex;
+  flex-wrap: wrap;
+}
+form#new_follower {
+  padding: 1em 1em 0em 1em;
+  height: fit-content;
+  margin: 0em 1em 1em 0em;
+}
+table#follower-table {
+  width: 30em;
+  margin-top: 3em;
+}
