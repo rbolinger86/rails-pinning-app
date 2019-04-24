@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20190312201956) do
   add_foreign_key "boards", "users"
   add_foreign_key "followers", "users"
   add_foreign_key "followers", "users", column: "follower_id"
-  add_foreign_key "pinnings", "pins", on_delete: :cascade
+  add_foreign_key "pinnings", "pins"
   add_foreign_key "pinnings", "users"
   add_foreign_key "pins", "users"
 end

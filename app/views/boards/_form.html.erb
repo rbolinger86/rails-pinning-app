@@ -19,7 +19,8 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
   <% if @followers.present? %>
-    <div class="form-group">
+    <div class="form-group permission-form-label">
+      <label>Repinning Permissions</label>
       <%= select_tag "board[board_pinners_attributes][0][user_id]", options_from_collection_for_select(@followers, :id, :full_name), class: "form-control", include_blank: true %>
     </div>
   <% end %>

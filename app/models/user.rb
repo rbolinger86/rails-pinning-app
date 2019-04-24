@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email, :password
   validates_uniqueness_of :email
-  has_many :pinnings
-  has_many :pins, through: :pinnings
-  has_many :boards
-  has_many :followers
-  has_many :board_pinners
+  has_many :pinnings, dependent: :destroy
+  has_many :pins, through: :pinnings, dependent: :destroy
+  has_many :boards, dependent: :destroy
+  has_many :followers, dependent: :destroy
+  has_many :board_pinners, dependent: :destroy
   has_secure_password
 
   def self.authenticate(email, password)

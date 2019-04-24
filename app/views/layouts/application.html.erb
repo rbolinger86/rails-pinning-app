@@ -48,6 +48,8 @@
               <li role="presentation">
                 <%= link_to "Logout", logout_path(current_user), :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
               </li>
+              <li role="presentation">
+                <%= link_to "Delete Account", user_path(current_user), method: :delete, data: { confirm: 'Are you sure?'}, "role" => "menuitem", "tabindex" => "-1"%>
             </ul>
         </div>
       <% end %>
