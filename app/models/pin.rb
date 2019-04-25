@@ -6,6 +6,6 @@ class Pin < ActiveRecord::Base
   validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   belongs_to :user
   has_many :pinnings, dependent: :destroy
-  has_many :users, through: :pinnings, dependent: :destroy
+  has_many :users, through: :pinnings
   accepts_nested_attributes_for :pinnings
 end

@@ -60,14 +60,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.pinnings.destroy_all
-    @user.pins.destroy_all
-    @user.boards.destroy_all
-    @user.followers.destroy_all
-    @user.board_pinners.destroy_all
-    @user.delete
+    Pin.where(user_id: current_user).destroy_all
+    Follower.where(follower_id: current_user).destroy_all
+    self.logout
+    @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to login_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
