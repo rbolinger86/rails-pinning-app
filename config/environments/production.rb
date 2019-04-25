@@ -1,5 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  Paperclip.options[:content_type_mappings] = {
+    :jpg => "image/jpeg",
+    :png => "image/png",
+    :gif => "image/gif"
 
   # Code is not reloaded between requests.
   config.cache_classes = true

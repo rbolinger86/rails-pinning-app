@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  Paperclip.options[:command_path] = "/c/Program Files/ImageMagick-7.0.8-Q16/"
+  Paperclip.options[:command_path] = '/c/Users/oliver91/sites/pinning_app/rails-pinning-app/ImageMagick-7.0.8-Q16/'
   Paperclip.options[:content_type_mappings] = {
     :jpg => "image/jpeg",
     :png => "image/png",
