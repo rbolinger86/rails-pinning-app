@@ -30,7 +30,7 @@
 </div>
 <div class="show-pin">
   <p><%= "#{@pin.text}" %></p>
-  <img src="<%= @pin.image.variant(resize_to_limit: [300, 300]) %>">
+  <img src="<%= @pin.image.variant(resize: "300x300").processed.service_url %>">
   <hr/>
   <p>
     <b>Visit <%= "#{@pin.title}" %> at: </b>
